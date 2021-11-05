@@ -1,0 +1,27 @@
+package CursoJava;
+
+import javax.swing.*;
+
+class Reajuste {
+    public static void main(String[] args) {
+
+        /*
+        Peça o salario de 3 funcionarios, faça o reajuste do salario de 7% se o salario for maior que 860.00 reais
+        e 10% se o salário for menor que 860.00.
+        */
+
+        double sal[] = new double[3];
+        for (int i = 0; i < sal.length; i++) {
+            sal[i] = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite um salário"));
+        }
+        for (int i = 0; i < sal.length; i++) {
+            if (sal[i] > 860.00) {
+                sal[i] = sal[i] * 1.07;
+            } else {
+                sal[i] = sal[i] * 1.10;
+            }
+            JOptionPane.showMessageDialog(null, "Salario reajustado " + sal[i]);
+        }
+    }
+
+}
