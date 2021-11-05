@@ -1,0 +1,27 @@
+package CursoJava;
+
+import javax.swing.*;
+
+class Senha {
+    public static void main(String[] args) {
+        
+        /*
+        Peça uma senha ao usuário, um número e outro número, caso ele acerte a senha retorne a divisão dos números
+        e caso ele não acerte retorne a seguinte frase "A senha está incorreta."
+
+        */
+        Double numero1, numero2, soma;
+        String senha = new String("");
+        String senha1 = new String("");
+        senha = JOptionPane.showInputDialog(null, "Digite uma senha");
+        numero1 = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite um numero"));
+        numero2 = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite outro numero"));
+        senha1 = JOptionPane.showInputDialog(null, "Confirme sua senha");
+        if (senha.equals(senha1)) {
+            soma = numero1 / numero2;
+            JOptionPane.showMessageDialog(null, "A divisão dos dois numeros deu o resultado de  " + soma);
+        } else {
+            JOptionPane.showMessageDialog(null, "A senha está incorreta.");
+        }
+    }
+}
