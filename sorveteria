@@ -1,0 +1,30 @@
+package CursoJava;
+
+import javax.swing.JOptionPane;
+
+class Sorvete {
+    public static void main(String[] args) {
+
+        /*
+        Crie um algoritimo que venda sorvete, tenha um estoque de 500 kg de sorvete, peça ao usuario a quantidade de kg de
+        sorvete que ele quer comprar e posteriormente o valor que vai custar essa quantidade de kg, caso a sorveteria não 
+        tenha estoque informe ao usuario a quantidade limite de sorvete que ele possa pedir.
+        */
+        double qtdsorvete = 500, sorvete = 0, vlpedido, vltotal = 0;
+        while (qtdsorvete > 0) {
+            sorvete = Double.parseDouble(JOptionPane.showInputDialog(null, "Quantos kilos de sorvete voce deseja?"));
+            if (sorvete <= 0) {
+                JOptionPane.showMessageDialog(null, "Insira um valor valido");
+            }
+            if (qtdsorvete >= sorvete && sorvete > 0) {
+                qtdsorvete -= sorvete;
+                vlpedido = sorvete * 25;
+                vltotal = vltotal + sorvete * 25;
+                JOptionPane.showMessageDialog(null, sorvete + " KG de sorvete custa o valor de " + vlpedido + " reais");
+            } else if (qtdsorvete <= sorvete && sorvete > 0) {
+                JOptionPane.showMessageDialog(null, "Desculpe, a quantidade total de sorvete que temos é de " + qtdsorvete + " Kg");
+            }
+        }
+        JOptionPane.showMessageDialog(null, "O valor total arecadado foi de " + vltotal + " reais.");
+    }
+}
