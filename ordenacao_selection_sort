@@ -1,0 +1,63 @@
+import javax.swing.*;
+
+class SelectionSort{
+
+    public static void main(String[] args) {
+        
+        /*
+        * Ordene 8 números com o método Selection Sort
+        * */
+        
+        int indice, aux;
+        int numero[] = new int[8];
+        for (int x = 0; x < numero.length; x++) {
+            numero[x] = Integer.parseInt(JOptionPane.showInputDialog("Digite um número"));
+        }
+
+        for (int i = 0; i < numero.length - 1; i++) {
+
+            indice = i;
+
+            for (int j = i + 1; j < numero.length; j++) {
+
+                if (numero[j] < numero[indice]) {
+                    indice = j;
+                }
+            }
+
+            if (indice != i) {
+                aux = numero[indice];
+                numero[indice] = numero[i];
+                numero[i] = aux;
+            }
+        }
+
+        for (int i = 0; i < numero.length; i++) {
+            indice = i;
+
+            for (int j = i + 1; j < numero.length; j++) {
+
+                if (numero[j] < numero[indice]) {
+                    indice = j;
+                }
+            }
+
+            if (indice != i) {
+                aux = numero[indice];
+                numero[indice] = numero[i];
+                numero[i] = aux;
+            }
+
+        }
+
+        System.out.println("Ordenação dos 8 números");
+        mostraVetor(numero);
+
+    }
+    private static void mostraVetor(int vetorNumero[]){
+        for (int i = 0; i < vetorNumero.length; i++) {
+            System.out.print(vetorNumero[i] + ",");
+        }
+        System.out.println("");
+    }
+}
