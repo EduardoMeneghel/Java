@@ -1,0 +1,45 @@
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+
+class ShellSort {
+
+    public static void main(String[] args) {
+
+        /*
+        * Escreva o algoritmo de ordenação Shell Sort para ordenar 20 números.
+        * */
+
+        int j, c;
+
+        int numero[] = new int[20];
+        for (int x = 0; x < numero.length; x++) {
+            numero[x] = Integer.parseInt(JOptionPane.showInputDialog("Digite um número"));
+        }
+        
+        JTextArea texto = new JTextArea();
+        int n = numero.length;
+        int h = n / 2;
+
+        while (h > 0) {
+            for (int i = h; i < numero.length; i++) {
+                c = numero[i];
+                j = i;
+
+                while (j >= h && numero[j - h] > c) {
+                    numero[j] = numero[j - h];
+                    j = j - h;
+                }
+                numero[j] = c;
+            }
+            h = h / 2;
+        }
+
+
+        texto.append("Ordenação dos 20 números \n");
+        for (int x = 0; x < numero.length; x++) {
+            texto.append(Integer.toString(numero[x]) + "\n");
+        }
+        JOptionPane.showMessageDialog(null, texto);
+
+    }
+}
